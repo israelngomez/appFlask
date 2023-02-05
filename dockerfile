@@ -5,9 +5,12 @@ WORKDIR /app
 
 COPY requirements.txt requirements.txt
 RUN pip3 install -r requirements.txt
+RUN pip3 install gunicorn
 
 COPY . .
 
 EXPOSE 5000
-
-CMD [ "python3", "./app.py"]
+WORKDIR  /appflask
+COPY entrypoint.sh .
+RUN chmod +x entrypoint.sh
+CMD [ "./entrypoint.sh" ]
