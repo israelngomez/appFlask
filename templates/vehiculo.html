@@ -1,0 +1,116 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    {% block content%}
+
+    <title>app coches</title>
+<style>
+   
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    body {
+background-image: url("https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/a8ca2ab5-a5fc-4149-bb30-45760512f23b/d8pfeb1-3fab8f40-4c12-413a-9d66-c404dbe3c8e4.jpg?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2E4Y2EyYWI1LWE1ZmMtNDE0OS1iYjMwLTQ1NzYwNTEyZjIzYlwvZDhwZmViMS0zZmFiOGY0MC00YzEyLTQxM2EtOWQ2Ni1jNDA0ZGJlM2M4ZTQuanBnIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.hXyaiD9NXxkdL5oHoOvXnY8sDzNIgP7Zk1Gi8b9VaBw");
+background-size: cover;
+background-repeat: no-repeat;
+}
+    th, td {
+      text-align: left;
+      padding: 8px;
+      border-bottom: 1px solid #ddd;
+    }
+    
+    th {
+      background-color: #ddd;
+    }
+    
+    a.delete {
+      color: red;
+      text-decoration: none;
+    }
+    form {
+      
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 2px 2px 5px grey;
+    }
+    input[type="text"] {
+      border: none;
+      border-bottom: 2px solid blue;
+      padding: 10px;
+      margin: 10px;
+      width: 90%;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    button[type="submit"] {
+      background-color: blue;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 5px;
+      border: none;
+      cursor: pointer;
+      font-size: 20px;
+      font-weight: bold;
+    }
+    </style>
+    
+    
+    
+
+        
+</head>
+<body>
+    <h1> coches de mi base de datos</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>id</th>
+                <th>matricula</th>
+                <th>color</th>
+                <th>modelo</th>
+                <th>marca</th>
+                <th>año</th>
+                
+                
+            </tr>
+            
+        </thead>
+        <tbody>
+            {% for vehiculo in vehiculos %}
+            <tr>
+                <td>{{ vehiculo.id }}</td>
+                <td>{{ vehiculo.matricula }}</td>
+                <td>{{ vehiculo.color }}</td>
+                <td>{{ vehiculo.modelo }}</td>
+                <td>{{ vehiculo.marca }}</td>
+                <td>{{ vehiculo.año }}</td>
+                
+                <td>
+                   <a href="{{ url_for('deletevehiculos', matricula=vehiculo.matricula) }}" class="delete">Delete</a>
+
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/addvehiculos"  method="POST">
+        <input type="text" name="id" placeholder="id">
+        <input type="text" name="matricula" placeholder="matricula">
+        <input type="text" name="color" placeholder="color">
+        <input type="text" name="modelo" placeholder="modelo">
+        <input type="text" name="marca" placeholder="marca">
+        <input type="text" name="año" placeholder="año">
+        
+        <button type="submit">
+           añade coche
+        </button>
+    </form>
+    {% endblock %}
+    
+    <button class=buttonindex onclick="location.href='propietario.html'">Propierario
+</body>
+</html>

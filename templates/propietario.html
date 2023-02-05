@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Dueños historicos de los coches</title>
+    <style>
+        body {
+    background-image: url("https://img3.wallspic.com/previews/8/6/7/5/6/165768/165768-forsage-dominic_torreto-cartel_f9-vin_diesel-toretto_dominic-x750.jpg");
+    background-size: cover; /* Ajusta la imagen de fondo para que cubra todo el fondo */
+    background-repeat: no-repeat; /* No se repite la imagen de fondo */
+    
+    
+}
+
+        table {
+            font-size: 1.5em;
+            border-collapse: collapse;
+            width: 100%;
+        }
+        th, td {
+        border: 1px solid blue;
+        padding: 8px;
+        text-align: left;
+    }
+
+    th, td {
+    border: 1px solid gray;
+    padding: 10px;
+    text-align: center; /* Alinea el contenido de las celdas al centro */
+}
+
+    th {
+        background-color: lightblue;
+        color: white;
+    }
+
+    form {
+        display: flex;
+        flex-wrap: wrap;
+        margin-top: 20px;
+    }
+
+    input[type="text"] {
+        font-size: 1.5em;
+        padding: 10px;
+        margin-right: 10px;
+        flex-basis: calc(33.33% - 20px);
+    }
+
+    button[type="submit"] {
+        background-color: lightblue;
+        color: white;
+        border: none;
+        padding: 10px 20px;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+
+    button[type="submit"]:hover {
+        background-color: blue;
+    }
+
+    a.delete {
+        color: red;
+        font-size: 1.5em;
+        cursor: pointer;
+    }
+</style>
+
+
+</head>
+
+<body>
+    <h1>Dueños historicos de los coches</h1>
+    <table>
+        <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Apellidos</th>
+            <th>dnie</th>
+            <th>id_vehiculo</th>
+            
+        </tr>
+        {% for propietario in propietarios %}
+        <tr>
+            <td>{{propietario.id}}</td>
+            <td>{{propietario.nombre}}</td>
+            <td>{{propietario.apellidos}}</td>
+            <td>{{propietario.dnie}}</td>
+            <td>{{propietario.id_vehiculo}}</td>
+            <td>
+                
+                <a href="{{ url_for('deletepropietarios', id=propietario.id) }}" class="delete">Delete</a>
+            </td>
+        </tr>
+        {% endfor %}
+    </table>
+    <form action="/addpropietarios" method="POST">
+        <input type="text" name="id" placeholder="id">
+        <input type="text" name="nombre" placeholder="Nombre">
+        <input type="text" name="apellidos" placeholder="Apellidos">
+        <input type="text" name="dnie" placeholder="dnie">
+        <input type="text" name="id_vehiculo" placeholder="id_vehiculo">
+        <button type="submit">Propietario Crear</button>
+    </form>
+    
+    <button class="buttonindex" onclick="location.href='vehiculo.html'">Vehículos</button>
+
+</body>
+</html>

@@ -1,0 +1,48 @@
+
+<html>
+    <head>
+        <title>Mi app</title>
+        <style>
+            body {
+  background-image: url("https://cdn-images.motor.es/image/m/694w.webp/fotos-noticias/2020/03/que-coche-es-rayo-mcqueen-202066150-1585635516_1.jpg");
+  background-size: cover;
+  background-position: center;
+}
+
+            .container {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                height: 100vh;
+            }
+            
+            .title {
+                font-size: 3em;
+                margin-bottom: 40px;
+            }
+            
+            .buttonindex {
+                padding: 20px 40px;
+                background-color: lightblue;
+                color: white;
+                border: none;
+                border-radius: 10px;
+                font-size: 1.5em;
+                cursor: pointer;
+                margin: 20px;
+            }
+            
+            .buttonindex:hover {
+                background-color: blue;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="container">
+            <h1 class="title">Mi app</h1>
+            <button class="buttonindex" onclick="location.href='vehiculo.html'">Coches</button>
+            <button class="buttonindex" onclick="location.href='propietario.html'">Propietarios de los coches</button>
+        </div>
+    </body>
+    </html>
+    
