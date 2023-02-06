@@ -1,4 +1,4 @@
-name: Server CI workflow
+name: israel
 
 on:
   push:
