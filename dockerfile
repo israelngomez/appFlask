@@ -10,7 +10,7 @@ RUN pip3 install gunicorn
 COPY . .
 
 EXPOSE 5000
-WORKDIR  /appflask
+WORKDIR  /
 COPY entrypoint.sh .
 RUN chmod +x entrypoint.sh
 CMD [ "./entrypoint.sh" ]
